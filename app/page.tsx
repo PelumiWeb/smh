@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "./components/ScrollReveal";
 
@@ -37,19 +38,23 @@ export default function HomePage() {
               >
                 Support our work
               </Link>
-              <Link
-                className="btn btn-outline-light btn-lg"
-                href="/programs"
-              >
+              <Link className="btn btn-outline-light btn-lg" href="/programs">
                 See our programs
               </Link>
             </div>
           </div>
+
           <div className="hero-media">
-            <div
-              className="hero-img img-placeholder"
-              aria-label="Photo placeholder — children / youth in a Gambian community"
-            />
+            <div className="hero-img">
+              <Image
+                src="/photos/hero-youth.jpg"
+                alt="A young SMF volunteer at a community event in The Gambia"
+                fill
+                style={{ objectFit: "cover", objectPosition: "center top" }}
+                sizes="(max-width: 900px) 460px, (max-width: 1320px) 42vw, 560px"
+                priority
+              />
+            </div>
             <div className="hero-badge">
               <span className="hb-mark">SMF</span>
               <span className="hb-text">
@@ -249,10 +254,15 @@ export default function HomePage() {
       <section className="section approach">
         <div className="container approach-grid">
           <div className="approach-media reveal">
-            <div
-              className="approach-img img-placeholder"
-              aria-label="Photo placeholder — community meeting / families / local partners"
-            />
+            <div className="approach-img">
+              <Image
+                src="/photos/group-beach.jpg"
+                alt="SMF community group gathered at a beach cleanup event in The Gambia"
+                fill
+                style={{ objectFit: "cover" }}
+                sizes="(max-width: 900px) 100vw, (max-width: 1320px) 46vw, 560px"
+              />
+            </div>
           </div>
           <div className="approach-copy reveal">
             <p className="eyebrow">Our approach</p>

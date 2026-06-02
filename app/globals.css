@@ -364,6 +364,8 @@ p {
   grid-template-columns: 0.85fr 1.15fr;
 }
 .split-img {
+  position: relative;
+  overflow: hidden;
   width: 100%;
   aspect-ratio: 5 / 4;
   border-radius: 6px;
@@ -863,6 +865,8 @@ p {
   padding: clamp(28px, 3vw, 40px);
 }
 .contact-map {
+  position: relative;
+  overflow: hidden;
   width: 100%;
   aspect-ratio: 16 / 10;
   margin-top: 24px;
@@ -962,6 +966,8 @@ p {
   position: relative;
 }
 .hero-img {
+  position: relative;
+  overflow: hidden;
   width: 100%;
   aspect-ratio: 4 / 5;
   border-radius: 6px;
@@ -1042,6 +1048,8 @@ p {
   align-items: center;
 }
 .approach-img {
+  position: relative;
+  overflow: hidden;
   width: 100%;
   aspect-ratio: 5 / 4;
   border-radius: 6px;
