@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "../components/ScrollReveal";
 import DonatePanel from "../components/DonatePanel";
@@ -125,8 +126,7 @@ export default function GetInvolvedPage() {
               </p>
               <ul className="give-list">
                 <li>
-                  <strong>A school kit</strong> keeps a child learning for a
-                  term.
+                  <strong>A school kit</strong> keeps a child learning for a term.
                 </li>
                 <li>
                   <strong>A mentoring place</strong> pairs a young person with
@@ -172,10 +172,15 @@ export default function GetInvolvedPage() {
             </Link>
           </div>
           <div className="split-media reveal">
-            <div
-              className="split-img img-placeholder"
-              aria-label="Photo placeholder — volunteers / mentors with young people"
-            />
+            <div className="split-img">
+              <Image
+                src="/photos/cleanup-wheelbarrow.jpg"
+                alt="SMF volunteers working together at a community wheelbarrow cleanup in The Gambia"
+                fill
+                style={{ objectFit: "cover" }}
+                sizes="(max-width: 900px) 100vw, (max-width: 1320px) 46vw, 560px"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -184,10 +189,15 @@ export default function GetInvolvedPage() {
       <section className="section" id="partner">
         <div className="container split flip">
           <div className="split-media reveal">
-            <div
-              className="split-img img-placeholder"
-              aria-label="Photo placeholder — partners / institutions / signing"
-            />
+            <div className="split-img">
+              <Image
+                src="/photos/redcross-courtyard.jpg"
+                alt="SMF and Red Cross partners collaborating in a courtyard meeting"
+                fill
+                style={{ objectFit: "cover" }}
+                sizes="(max-width: 900px) 100vw, (max-width: 1320px) 46vw, 560px"
+              />
+            </div>
           </div>
           <div className="split-copy reveal">
             <p className="eyebrow">Partner with us</p>
@@ -220,10 +230,7 @@ export default function GetInvolvedPage() {
         style={{ background: "var(--cream)" }}
       >
         <div className="container center" style={{ maxWidth: 720 }}>
-          <p
-            className="eyebrow center"
-            style={{ justifyContent: "center" }}
-          >
+          <p className="eyebrow center" style={{ justifyContent: "center" }}>
             Fundraise
           </p>
           <h2 className="h2 reveal">
@@ -236,10 +243,7 @@ export default function GetInvolvedPage() {
             Run a campaign at your school, workplace, place of worship, or
             among friends. We&apos;ll help you set a goal and share the impact.
           </p>
-          <Link
-            className="btn btn-primary btn-lg reveal"
-            href="/contact"
-          >
+          <Link className="btn btn-primary btn-lg reveal" href="/contact">
             Talk to us about fundraising
           </Link>
         </div>

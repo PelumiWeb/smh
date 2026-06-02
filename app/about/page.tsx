@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "../components/ScrollReveal";
 
@@ -21,11 +22,14 @@ export default function AboutPage() {
             <span>/</span>
             <span>About</span>
           </nav>
-          <h1 className="h1">Supporting, mentoring, and empowering young lives.</h1>
+          <h1 className="h1">
+            Supporting, mentoring, and empowering young lives.
+          </h1>
           <p className="lead">
-            Support &amp; Mentor Foundation (SMF) is a non-governmental, non-profit
-            organization dedicated to advancing the well-being, protection, and
-            empowerment of vulnerable children and young people in The Gambia.
+            Support &amp; Mentor Foundation (SMF) is a non-governmental,
+            non-profit organization dedicated to advancing the well-being,
+            protection, and empowerment of vulnerable children and young people
+            in The Gambia.
           </p>
         </div>
       </section>
@@ -34,24 +38,31 @@ export default function AboutPage() {
       <section className="section">
         <div className="container split narrow flip">
           <div className="split-media reveal">
-            <div
-              className="split-img img-placeholder"
-              aria-label="Photo placeholder — young people / classroom / community"
-            />
+            <div className="split-img">
+              <Image
+                src="/photos/group-beach2.jpg"
+                alt="SMF youth and community members gathered together in The Gambia"
+                fill
+                style={{ objectFit: "cover" }}
+                sizes="(max-width: 900px) 100vw, (max-width: 1320px) 42vw, 500px"
+              />
+            </div>
           </div>
           <div className="split-copy reveal">
             <p className="eyebrow">Our vision</p>
-            <h2 className="h2">A society where every child can grow with dignity.</h2>
+            <h2 className="h2">
+              A society where every child can grow with dignity.
+            </h2>
             <p className="lead">
               We envision a society in which every child and young person —
-              regardless of background, gender, ability, or socio-economic status
-              — is protected from harm, supported to grow with dignity, and given
-              equal opportunities to reach their full potential.
+              regardless of background, gender, ability, or socio-economic
+              status — is protected from harm, supported to grow with dignity,
+              and given equal opportunities to reach their full potential.
             </p>
             <p className="muted" style={{ marginTop: 18 }}>
-              This vision reflects our commitment to social justice, inclusion, and
-              the belief that every young person has inherent value and the right to
-              a safe, supportive environment in which to thrive.
+              This vision reflects our commitment to social justice, inclusion,
+              and the belief that every young person has inherent value and the
+              right to a safe, supportive environment in which to thrive.
             </p>
           </div>
         </div>
@@ -62,25 +73,32 @@ export default function AboutPage() {
         <div className="container split narrow">
           <div className="split-copy reveal">
             <p className="eyebrow">Our mission</p>
-            <h2 className="h2">Comprehensive, sustainable support for the long term.</h2>
+            <h2 className="h2">
+              Comprehensive, sustainable support for the long term.
+            </h2>
             <p className="lead">
               We support, mentor, and empower children and young people through
               interventions that address both immediate needs and long-term
               development.
             </p>
             <p className="muted" style={{ marginTop: 18 }}>
-              We improve access to quality education, strengthen child-protection
-              systems, and equip young people with the life skills to make informed
-              decisions and build independent, productive lives. Through mentorship,
-              psychosocial support, and guidance, we foster confidence, resilience,
-              leadership, and positive values.
+              We improve access to quality education, strengthen
+              child-protection systems, and equip young people with the life
+              skills to make informed decisions and build independent, productive
+              lives. Through mentorship, psychosocial support, and guidance, we
+              foster confidence, resilience, leadership, and positive values.
             </p>
           </div>
           <div className="split-media reveal">
-            <div
-              className="split-img img-placeholder"
-              aria-label="Photo placeholder — mentorship / guidance / skills training"
-            />
+            <div className="split-img">
+              <Image
+                src="/photos/outreach-survey.jpg"
+                alt="SMF staff conducting a community outreach survey in The Gambia"
+                fill
+                style={{ objectFit: "cover" }}
+                sizes="(max-width: 900px) 100vw, (max-width: 1320px) 42vw, 500px"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -107,22 +125,22 @@ export default function AboutPage() {
             <div className="aim reveal">
               <h3>Life skills &amp; leadership</h3>
               <p>
-                Leadership development, entrepreneurship, and vocational training
-                to enhance employability and self-reliance.
+                Leadership development, entrepreneurship, and vocational
+                training to enhance employability and self-reliance.
               </p>
             </div>
             <div className="aim reveal">
               <h3>Protection from harm</h3>
               <p>
-                Shielding children from abuse, exploitation, neglect, and harmful
-                practices through awareness, advocacy, and engagement.
+                Shielding children from abuse, exploitation, neglect, and
+                harmful practices through awareness, advocacy, and engagement.
               </p>
             </div>
             <div className="aim reveal">
               <h3>Inclusion &amp; equal participation</h3>
               <p>
-                Promoting the inclusion of marginalized and disadvantaged groups,
-                ensuring no child or young person is left behind.
+                Promoting the inclusion of marginalized and disadvantaged
+                groups, ensuring no child or young person is left behind.
               </p>
             </div>
           </div>
@@ -133,14 +151,21 @@ export default function AboutPage() {
       <section className="section" style={{ background: "var(--cream)" }}>
         <div className="container split flip">
           <div className="split-media reveal">
-            <div
-              className="split-img img-placeholder"
-              aria-label="Photo placeholder — community leaders / partners / families"
-            />
+            <div className="split-img">
+              <Image
+                src="/photos/elder-engage.jpg"
+                alt="SMF team engaging with community elders and local leaders in The Gambia"
+                fill
+                style={{ objectFit: "cover" }}
+                sizes="(max-width: 900px) 100vw, (max-width: 1320px) 46vw, 560px"
+              />
+            </div>
           </div>
           <div className="split-copy reveal">
             <p className="eyebrow">Community-based</p>
-            <h2 className="h2">Sustainable change through local ownership.</h2>
+            <h2 className="h2">
+              Sustainable change through local ownership.
+            </h2>
             <p className="lead">
               We recognize that lasting change is best achieved through
               collaboration. We work closely with families, community leaders,
@@ -148,16 +173,16 @@ export default function AboutPage() {
               international partners.
             </p>
             <p className="muted" style={{ marginTop: 18 }}>
-              Together we design and implement programs that respond to local needs
-              while aligning with national and global development priorities —
-              building resilient communities that protect children now and into the
-              future.
+              Together we design and implement programs that respond to local
+              needs while aligning with national and global development
+              priorities — building resilient communities that protect children
+              now and into the future.
             </p>
           </div>
         </div>
       </section>
 
-      {/* LEADERSHIP */}
+      {/* LEADERSHIP QUOTE */}
       <section className="section">
         <div className="container">
           <div className="lead-block reveal">
@@ -170,16 +195,12 @@ export default function AboutPage() {
             >
               <path d="M10 7H6a3 3 0 0 0-3 3v7h7v-7H6c0-1 .5-2 2-2zm10 0h-4a3 3 0 0 0-3 3v7h7v-7h-4c0-1 .5-2 2-2z" />
             </svg>
-            <p
-              className="pq-text"
-              style={{ textAlign: "left", maxWidth: "60ch" }}
-            >
+            <p className="pq-text" style={{ textAlign: "left", maxWidth: "60ch" }}>
               We remain committed to creating lasting positive impact, nurturing
               hope, and empowering the next generation to lead meaningful,
               dignified, and productive lives.
             </p>
             <div className="lead-sign">
-              <div className="leader-avatar" />
               <div>
                 <div className="pq-name">Mustapha Bah</div>
                 <div className="pq-role">
@@ -213,10 +234,7 @@ export default function AboutPage() {
             >
               Donate today
             </Link>
-            <Link
-              className="btn btn-outline-light btn-lg"
-              href="/get-involved"
-            >
+            <Link className="btn btn-outline-light btn-lg" href="/get-involved">
               Get involved
             </Link>
           </div>

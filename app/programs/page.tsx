@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "../components/ScrollReveal";
 
@@ -63,10 +64,15 @@ export default function ProgramsPage() {
             />
           </div>
           <div className="split-media reveal">
-            <div
-              className="split-img img-placeholder"
-              aria-label="Photo placeholder — students / classroom / learning"
-            />
+            <div className="split-img">
+              <Image
+                src="/photos/workshop-tree.jpg"
+                alt="Young people at an SMF skills workshop held outdoors in The Gambia"
+                fill
+                style={{ objectFit: "cover" }}
+                sizes="(max-width: 900px) 100vw, (max-width: 1320px) 46vw, 560px"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -79,10 +85,15 @@ export default function ProgramsPage() {
       >
         <div className="container split flip">
           <div className="split-media reveal">
-            <div
-              className="split-img img-placeholder"
-              aria-label="Photo placeholder — safeguarding / community awareness"
-            />
+            <div className="split-img">
+              <Image
+                src="/photos/redcross-casework.jpg"
+                alt="SMF and Red Cross staff conducting community child-protection casework"
+                fill
+                style={{ objectFit: "cover" }}
+                sizes="(max-width: 900px) 100vw, (max-width: 1320px) 46vw, 560px"
+              />
+            </div>
           </div>
           <div className="split-copy reveal">
             <p className="eyebrow">02 · Child Protection</p>
@@ -126,10 +137,15 @@ export default function ProgramsPage() {
             />
           </div>
           <div className="split-media reveal">
-            <div
-              className="split-img img-placeholder"
-              aria-label="Photo placeholder — vocational training / youth leadership"
-            />
+            <div className="split-img">
+              <Image
+                src="/photos/cleanup-lift.jpg"
+                alt="SMF volunteers working together at a community cleanup in The Gambia"
+                fill
+                style={{ objectFit: "cover" }}
+                sizes="(max-width: 900px) 100vw, (max-width: 1320px) 46vw, 560px"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -142,10 +158,15 @@ export default function ProgramsPage() {
       >
         <div className="container split flip">
           <div className="split-media reveal">
-            <div
-              className="split-img img-placeholder"
-              aria-label="Photo placeholder — inclusive group / diverse young people"
-            />
+            <div className="split-img">
+              <Image
+                src="/photos/inclusion-crutches.jpg"
+                alt="An SMF program participant on crutches taking part in a community activity"
+                fill
+                style={{ objectFit: "cover" }}
+                sizes="(max-width: 900px) 100vw, (max-width: 1320px) 46vw, 560px"
+              />
+            </div>
           </div>
           <div className="split-copy reveal">
             <p className="eyebrow">04 · Inclusion &amp; Equity</p>
