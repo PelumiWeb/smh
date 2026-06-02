@@ -5,25 +5,28 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
+const NAV_LINKS = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/programs", label: "Programs" },
+  { href: "/get-involved", label: "Get Involved" },
+  { href: "/contact", label: "Contact" },
+];
+
 export default function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  const links = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/programs", label: "Programs" },
-    { href: "/get-involved", label: "Get Involved" },
-    { href: "/contact", label: "Contact" },
-  ];
+  const close = () => setOpen(false);
 
   return (
     <header className="site-header">
+      {/* ── Main bar ── */}
       <nav className="nav container-wide">
-        <Link className="nav-brand" href="/">
+        <Link className="nav-brand" href="/" onClick={close}>
           <Image
             src="/smf-emblem.png"
-            alt="Support &amp; Mentor Foundation logo"
+            alt="Support & Mentor Foundation logo"
             width={48}
             height={48}
             style={{ height: 48, width: "auto" }}
@@ -34,14 +37,11 @@ export default function SiteHeader() {
           </span>
         </Link>
 
-        <ul className={`nav-links${open ? " open" : ""}`}>
-          {links.map(({ href, label }) => (
+        {/* Desktop links */}
+        <ul className="nav-links">
+          {NAV_LINKS.map(({ href, label }) => (
             <li key={href}>
-              <Link
-                href={href}
-                className={pathname === href ? "active" : ""}
-                onClick={() => setOpen(false)}
-              >
+              <Link href={href} className={pathname === href ? "active" : ""}>
                 {label}
               </Link>
             </li>
@@ -55,15 +55,17 @@ export default function SiteHeader() {
           <button
             className="nav-toggle"
             aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
           >
             <svg
-              width="26"
-              height="26"
+              width="24"
+              height="24"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              strokeWidth="1.8"
+              strokeWidth="2"
+              strokeLinecap="round"
             >
               {open ? (
                 <>
@@ -81,6 +83,33 @@ export default function SiteHeader() {
           </button>
         </div>
       </nav>
+
+      {/* ── Mobile drawer — lives inside the sticky header, no fixed/transform issues ── */}
+      <div className={`mobile-drawer${open ? " mobile-drawer--open" : ""}`} aria-hidden={!open}>
+        <ul className="mobile-drawer-links container-wide">
+          {NAV_LINKS.map(({ href, label }) => (
+            <li key={href}>
+              <Link
+                href={href}
+                className={pathname === href ? "active" : ""}
+                onClick={close}
+              >
+                {label}
+              </Link>
+            </li>
+          ))}
+          <li className="mobile-drawer-cta">
+            <Link
+              className="btn btn-primary"
+              href="/get-involved#donate"
+              onClick={close}
+              style={{ width: "100%", justifyContent: "center" }}
+            >
+              Donate
+            </Link>
+          </li>
+        </ul>
+      </div>
     </header>
   );
 }

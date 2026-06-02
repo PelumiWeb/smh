@@ -1125,6 +1125,8 @@ p {
 }
 
 /* ---------- responsive ---------- */
+
+/* ≤1024px — tablet landscape */
 @media (max-width: 1024px) {
   .footer-top {
     grid-template-columns: 1fr 1fr;
@@ -1137,15 +1139,17 @@ p {
     grid-template-columns: 1fr;
   }
 }
-@media (max-width: 900px) {
-  .split {
-    grid-template-columns: 1fr;
-  }
-  .split.flip .split-media {
-    order: 2;
+
+/* ≤1000px — shrink nav brand */
+@media (max-width: 1000px) {
+  .nav-brand .nb-text {
+    display: none;
   }
 }
+
+/* ≤900px — tablet portrait: collapse all two-column layouts */
 @media (max-width: 900px) {
+  /* hero */
   .hero-inner {
     grid-template-columns: 1fr;
     gap: 48px;
@@ -1156,54 +1160,54 @@ p {
   .hero-badge {
     left: 0;
   }
+  /* intro */
   .intro-grid {
     grid-template-columns: 1fr;
     gap: 28px;
   }
+  /* approach */
   .approach-grid {
     grid-template-columns: 1fr;
   }
   .approach-media {
     order: 2;
   }
+  /* split rows */
+  .split {
+    grid-template-columns: 1fr;
+  }
+  /* on flip, show image after copy so text reads first on mobile */
+  .split.flip .split-media {
+    order: 2;
+  }
+  /* cta band */
+  .cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
+
+/* ≤880px — contact two-pane */
 @media (max-width: 880px) {
   .contact-grid {
     grid-template-columns: 1fr;
   }
 }
+
+/* ≤860px — mobile nav + grids */
 @media (max-width: 860px) {
+  /* hide desktop nav links */
   .nav-links {
-    position: fixed;
-    inset: 84px 0 auto 0;
-    background: var(--bone);
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-    padding: 8px var(--pad-x) 24px;
-    border-bottom: 1px solid var(--line);
-    transform: translateY(-120%);
-    transition: transform 0.3s var(--ease);
-    box-shadow: 0 20px 40px rgba(22, 35, 91, 0.08);
-    z-index: 99;
+    display: none;
   }
-  .nav-links.open {
-    transform: none;
-  }
-  .nav-links a {
-    width: 100%;
-    padding: 16px 0;
-    border-bottom: 1px solid var(--line-soft);
-  }
-  .nav-links a::after {
+  /* hide desktop Donate button, show hamburger */
+  .nav-actions .btn {
     display: none;
   }
   .nav-toggle {
     display: inline-flex;
   }
-  .nav-actions .btn {
-    display: none;
-  }
+  /* grids */
   .aims {
     grid-template-columns: 1fr;
   }
@@ -1217,19 +1221,128 @@ p {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* ── Mobile drawer (inside sticky header, no fixed/stacking-context issues) ── */
+.mobile-drawer {
+  display: none;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.32s var(--ease);
+  border-top: 1px solid var(--line);
+  background: var(--bone);
+}
+.mobile-drawer--open {
+  max-height: 480px;
+}
+@media (max-width: 860px) {
+  .mobile-drawer {
+    display: block;
+  }
+}
+.mobile-drawer-links {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0 20px;
+  display: flex;
+  flex-direction: column;
+}
+.mobile-drawer-links li {
+  border-bottom: 1px solid var(--line-soft);
+}
+.mobile-drawer-links li:last-child {
+  border-bottom: none;
+}
+.mobile-drawer-links a {
+  display: block;
+  padding: 15px 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  transition: color 0.15s var(--ease);
+}
+.mobile-drawer-links a:hover,
+.mobile-drawer-links a.active {
+  color: var(--accent-deep);
+}
+.mobile-drawer-cta {
+  padding: 18px 0 6px;
+  border-bottom: none !important;
+}
+
+/* ≤640px — mobile: footer single column, grids single column */
+@media (max-width: 640px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-block: 48px 40px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  /* most 4-item grids go single column */
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+  /* stats keeps 2 columns so 4 items aren't an excessively tall stack */
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ≤600px — form rows */
 @media (max-width: 600px) {
   .form-row {
     grid-template-columns: 1fr;
   }
 }
-@media (max-width: 1000px) {
-  .nav-brand .nb-text {
+
+/* ≤480px — small phones */
+@media (max-width: 480px) {
+  /* hero badge overflows at this width */
+  .hero-badge {
     display: none;
   }
-}
-@media (max-width: 560px) {
-  .cta-inner {
+  /* stack hero CTA buttons full-width */
+  .hero-cta {
     flex-direction: column;
-    align-items: flex-start;
+  }
+  .hero-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  /* stack CTA band buttons full-width */
+  .cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .cta-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  /* tighter donate card */
+  .donate-card {
+    padding: 22px 16px;
+  }
+  /* reduce section rhythm slightly on small phones */
+  .section {
+    padding-block: clamp(44px, 7vw, 80px);
+  }
+  /* page-hero padding */
+  .page-hero {
+    padding-block: 48px 56px;
+  }
+}
+
+/* ≤400px — very small phones */
+@media (max-width: 400px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .amt-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
