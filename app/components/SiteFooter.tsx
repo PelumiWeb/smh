@@ -15,6 +15,7 @@ export default function SiteFooter() {
           <h4>Explore</h4>
           <ul>
             <li><Link href="/about">About us</Link></li>
+            <li><Link href="/leadership">Leadership</Link></li>
             <li><Link href="/programs">Our programs</Link></li>
             <li><Link href="/get-involved">Get involved</Link></li>
             <li><Link href="/contact">Contact</Link></li>

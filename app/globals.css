@@ -1124,6 +1124,70 @@ p {
   color: var(--ink-50);
 }
 
+/* ---------- team cards (leadership page) ---------- */
+.team-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--cream);
+  border-radius: 6px;
+}
+.team-photo img,
+.team-photo > span { /* next/image renders a span wrapper */
+  transition: transform 0.5s var(--ease);
+}
+.team-card:hover .team-photo img {
+  transform: scale(1.035);
+}
+.team-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.team-card .tc-dept {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.team-card .tc-dept::before {
+  content: "";
+  width: 18px;
+  height: 2px;
+  background: var(--accent);
+  display: inline-block;
+  flex-shrink: 0;
+}
+.team-card .tc-role {
+  font-weight: 600;
+  font-size: 1.18rem;
+  color: var(--navy);
+  line-height: 1.2;
+}
+
+/* executive pair — 2-up, centered, larger type */
+.team-exec {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 360px));
+  gap: clamp(28px, 4vw, 56px);
+  justify-content: center;
+}
+.team-exec .team-card .tc-role {
+  font-size: 1.45rem;
+}
+
+/* directorate — 4-up grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(24px, 3vw, 38px);
+}
+
 /* ---------- responsive ---------- */
 
 /* ≤1024px — tablet landscape */
@@ -1137,6 +1201,9 @@ p {
   }
   .donate-wrap {
     grid-template-columns: 1fr;
+  }
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -1271,6 +1338,18 @@ p {
   border-bottom: none !important;
 }
 
+/* ≤760px — team grid 2-up, exec stack */
+@media (max-width: 760px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .team-exec {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin-inline: auto;
+  }
+}
+
 /* ≤640px — mobile: footer single column, grids single column */
 @media (max-width: 640px) {
   .footer-top {
@@ -1334,6 +1413,13 @@ p {
   /* page-hero padding */
   .page-hero {
     padding-block: 48px 56px;
+  }
+}
+
+/* ≤440px — team grid single column */
+@media (max-width: 440px) {
+  .team-grid {
+    grid-template-columns: 1fr;
   }
 }
 
