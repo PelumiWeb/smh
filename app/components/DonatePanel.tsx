@@ -4,21 +4,72 @@ import { useState } from "react";
 
 const AMOUNTS = [25, 50, 100, 250, 500] as const;
 
+type Status = "idle" | "loading" | "error";
+
 export default function DonatePanel() {
   const [freq, setFreq] = useState<"once" | "monthly">("once");
   const [amt, setAmt] = useState<number | "custom">(50);
   const [customVal, setCustomVal] = useState("");
+  const [donorName, setDonorName] = useState("");
+  const [donorEmail, setDonorEmail] = useState("");
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const displayAmt =
-    amt === "custom"
-      ? customVal
-        ? `$${customVal}`
-        : ""
-      : `$${amt}`;
+  const numericAmt = amt === "custom" ? parseInt(customVal, 10) : amt;
+  const displayAmt = numericAmt > 0 ? `£${numericAmt}` : "";
+  const label =
+    status === "loading"
+      ? "Processing…"
+      : displayAmt
+      ? `Donate ${displayAmt}${freq === "monthly" ? "/mo" : ""}`
+      : "Donate";
 
-  const label = displayAmt
-    ? `Donate ${displayAmt}${freq === "monthly" ? "/mo" : ""}`
-    : "Donate";
+  async function handleDonate() {
+    setErrorMsg("");
+
+    if (!donorName.trim()) {
+      setErrorMsg("Please enter your name.");
+      return;
+    }
+    if (!donorEmail.trim() || !donorEmail.includes("@")) {
+      setErrorMsg("Please enter a valid email address.");
+      return;
+    }
+    if (!numericAmt || numericAmt <= 0 || !Number.isInteger(numericAmt)) {
+      setErrorMsg("Please enter a valid whole amount in £.");
+      return;
+    }
+
+    setStatus("loading");
+
+    try {
+      const res = await fetch("/api/donate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          amount: numericAmt,
+          donorName: donorName.trim(),
+          donorEmail: donorEmail.trim(),
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error ?? "Something went wrong.");
+      }
+
+      // Redirect to Stripe hosted checkout page
+      window.location.href = data.url;
+    } catch (err) {
+      setStatus("error");
+      setErrorMsg(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again."
+      );
+    }
+  }
 
   return (
     <div className="donate-card">
@@ -48,7 +99,7 @@ export default function DonatePanel() {
             className={`amt${amt === a ? " active" : ""}`}
             onClick={() => setAmt(a)}
           >
-            ${a}
+            £{a}
           </button>
         ))}
         <button
@@ -61,26 +112,52 @@ export default function DonatePanel() {
 
       {amt === "custom" && (
         <div className="field">
-          <label htmlFor="customAmt">Custom amount (USD)</label>
+          <label htmlFor="customAmt">Custom amount (GBP)</label>
           <input
             type="number"
             id="customAmt"
             min="1"
-            placeholder="Enter amount"
+            step="1"
+            placeholder="Enter amount in £"
             value={customVal}
             onChange={(e) => setCustomVal(e.target.value)}
           />
         </div>
       )}
 
+      <div className="field" style={{ marginTop: 18 }}>
+        <label htmlFor="donorName">Your name</label>
+        <input
+          type="text"
+          id="donorName"
+          placeholder="Full name"
+          value={donorName}
+          onChange={(e) => setDonorName(e.target.value)}
+        />
+      </div>
+
+      <div className="field">
+        <label htmlFor="donorEmail">Email address</label>
+        <input
+          type="email"
+          id="donorEmail"
+          placeholder="you@example.com"
+          value={donorEmail}
+          onChange={(e) => setDonorEmail(e.target.value)}
+        />
+      </div>
+
+      {errorMsg && (
+        <p style={{ color: "#C0392B", fontSize: "0.875rem", margin: "0 0 12px" }}>
+          {errorMsg}
+        </p>
+      )}
+
       <button
         className="btn btn-primary btn-lg"
         style={{ width: "100%", justifyContent: "center" }}
-        onClick={() =>
-          alert(
-            `Thank you! This is a prototype — connect a payment processor (e.g. Stripe, Flutterwave) to accept ${label} donations.`
-          )
-        }
+        onClick={handleDonate}
+        disabled={status === "loading"}
       >
         {label}
       </button>
@@ -89,7 +166,7 @@ export default function DonatePanel() {
         className="muted"
         style={{ fontSize: "0.78rem", textAlign: "center", marginTop: 14 }}
       >
-        Secure payment · Prototype — not connected to a processor.
+        Secure payment via Stripe · You&apos;ll be redirected to complete your donation.
       </p>
     </div>
   );
