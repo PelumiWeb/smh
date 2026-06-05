@@ -37,7 +37,7 @@ export default function DonateCancelPage() {
           <a href="mailto:Supportandmentorfoundation@gmail.com">
             Supportandmentorfoundation@gmail.com
           </a>
-          .
+
         </p>
 
         <div
