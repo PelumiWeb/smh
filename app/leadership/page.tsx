@@ -13,6 +13,7 @@ interface TeamMember {
   photo: string;
   alt: string;
   dept: string;
+  name: string;
   role: string;
 }
 
@@ -29,6 +30,7 @@ function TeamCard({ member }: { member: TeamMember }) {
         />
       </div>
       <span className="tc-dept">{member.dept}</span>
+      <span className="tc-name">{member.name}</span>
       <span className="tc-role">{member.role}</span>
     </article>
   );
@@ -37,14 +39,16 @@ function TeamCard({ member }: { member: TeamMember }) {
 const EXEC: TeamMember[] = [
   {
     photo: "/team/exec-director.jpg",
-    alt: "Executive Director of Support & Mentor Foundation",
+    alt: "Lamin Dibba, Executive Director",
     dept: "Executive Office",
+    name: "Lamin Dibba",
     role: "Executive Director",
   },
   {
     photo: "/team/deputy-exec-director.jpg",
-    alt: "Deputy Executive Director of Support & Mentor Foundation",
+    alt: "Bakary Sarr, Deputy Executive Director",
     dept: "Executive Office",
+    name: "Bakary Sarr",
     role: "Deputy Executive Director",
   },
 ];
@@ -52,44 +56,58 @@ const EXEC: TeamMember[] = [
 const DIRECTORATE: TeamMember[] = [
   {
     photo: "/team/secretary-general.jpg",
-    alt: "Secretary General & Partnership",
+    alt: "Babucarr Kassama, Secretary General & Partnership",
     dept: "Partnerships",
+    name: "Babucarr Kassama",
     role: "Secretary General & Partnership",
   },
   {
     photo: "/team/deputy-secretary.jpg",
-    alt: "Deputy Secretary & Partnership Director",
+    alt: "Mariama Ceesay, Deputy Secretary & Partnership Director",
     dept: "Partnerships",
+    name: "Mariama Ceesay",
     role: "Deputy Secretary & Partnership Director",
   },
   {
     photo: "/team/finance-director.jpg",
-    alt: "Finance Director",
+    alt: "Mustapha Bah, Finance Director",
     dept: "Finance & Admin",
+    name: "Mustapha Bah",
     role: "Finance Director",
   },
   {
     photo: "/team/deputy-finance.jpg",
-    alt: "Deputy Finance & Admin",
+    alt: "Fatoumatta Fatty, Deputy Finance & Admin",
     dept: "Finance & Admin",
+    name: "Fatoumatta Fatty",
     role: "Deputy Finance & Admin",
   },
   {
     photo: "/team/media-director.jpg",
-    alt: "Media & Outreach Director",
+    alt: "Pa Saibo Sanneh, Media & Outreach Director",
     dept: "Media & Outreach",
+    name: "Pa Saibo Sanneh",
     role: "Media & Outreach Director",
   },
   {
     photo: "/team/deputy-media.jpg",
-    alt: "Deputy Media & Outreach",
+    alt: "Isatou Ceesay, Deputy Media & Outreach",
     dept: "Media & Outreach",
+    name: "Isatou Ceesay",
     role: "Deputy Media & Outreach",
   },
   {
-    photo: "/team/deputy-programs.jpg",
-    alt: "Deputy Programs Director",
+    photo: "/team/programs-director.jpg",
+    alt: "Nfansu Jatta, Programs Director",
     dept: "Programs",
+    name: "Nfansu Jatta",
+    role: "Programs Director",
+  },
+  {
+    photo: "/team/deputy-programs.jpg",
+    alt: "Lamin Marena, Deputy Programs Director",
+    dept: "Programs",
+    name: "Lamin Marena",
     role: "Deputy Programs Director",
   },
 ];

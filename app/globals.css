@@ -1128,10 +1128,12 @@ p {
 .team-photo {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 7 / 9;
   overflow: hidden;
   background: var(--cream);
-  border-radius: 6px;
+  border-radius: 3px;
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 22px rgba(22, 35, 91, 0.08);
 }
 .team-photo img,
 .team-photo > span { /* next/image renders a span wrapper */
@@ -1143,10 +1145,10 @@ p {
 .team-card {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 .team-card .tc-dept {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -1163,11 +1165,18 @@ p {
   display: inline-block;
   flex-shrink: 0;
 }
-.team-card .tc-role {
+.team-card .tc-name {
+  font-family: var(--font-head);
   font-weight: 600;
   font-size: 1.18rem;
   color: var(--navy);
-  line-height: 1.2;
+  line-height: 1.15;
+}
+.team-card .tc-role {
+  font-size: 0.92rem;
+  color: var(--ink-70);
+  line-height: 1.35;
+  margin-top: -6px;
 }
 
 /* executive pair — 2-up, centered, larger type */
@@ -1177,8 +1186,8 @@ p {
   gap: clamp(28px, 4vw, 56px);
   justify-content: center;
 }
-.team-exec .team-card .tc-role {
-  font-size: 1.45rem;
+.team-exec .team-card .tc-name {
+  font-size: 1.4rem;
 }
 
 /* directorate — 4-up grid */
