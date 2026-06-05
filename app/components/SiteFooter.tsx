@@ -46,8 +46,8 @@ export default function SiteFooter() {
               <path d="m2 6 10 7 10-7" />
             </svg>
             <span>
-              <a href="mailto:info@supportandmentorfoundation.org">
-                info@supportandmentorfoundation.org
+              <a href="mailto:Supportandmentorfoundation@gmail.com>
+                Supportandmentorfoundation@gmail.com
               </a>
             </span>
           </div>

@@ -45,8 +45,8 @@ export async function sendDonationReceipt({
         </p>
         <p style="margin-top:32px;color:#777E8D;font-size:0.875rem;">
           Support &amp; Mentor Foundation · OIC Road, Bijilo, The Gambia<br>
-          <a href="mailto:info@supportandmentorfoundation.org" style="color:#2C6FB5;">
-            info@supportandmentorfoundation.org
+          <a href="mailto:Supportandmentorfoundation@gmail.com" style="color:#2C6FB5;">
+           Supportandmentorfoundation@gmail.com
           </a>
         </p>
       </div>

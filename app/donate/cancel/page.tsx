@@ -7,7 +7,9 @@ export const metadata: Metadata = {
 
 export default function DonateCancelPage() {
   return (
-    <section className="section" style={{ minHeight: "60vh", display: "flex", alignItems: "center" }}>
+    <section
+      className="section"
+      style={{ minHeight: "60vh", display: "flex", alignItems: "center" }}>
       <div className="container" style={{ maxWidth: 640, textAlign: "center" }}>
         <svg
           width="64"
@@ -17,8 +19,7 @@ export default function DonateCancelPage() {
           stroke="var(--ink-50)"
           strokeWidth="1.6"
           strokeLinecap="round"
-          style={{ margin: "0 auto 24px" }}
-        >
+          style={{ margin: "0 auto 24px" }}>
           <circle cx="12" cy="12" r="10" />
           <line x1="15" y1="9" x2="9" y2="15" />
           <line x1="9" y1="9" x2="15" y2="15" />
@@ -33,13 +34,19 @@ export default function DonateCancelPage() {
         </p>
         <p className="muted" style={{ marginBottom: 36 }}>
           If you need help, contact us at{" "}
-          <a href="mailto:info@supportandmentorfoundation.org">
-            info@supportandmentorfoundation.org
+          <a href="mailto:Supportandmentorfoundation@gmail.com">
+            Supportandmentorfoundation@gmail.com
           </a>
           .
         </p>
 
-        <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+        <div
+          style={{
+            display: "flex",
+            gap: 16,
+            justifyContent: "center",
+            flexWrap: "wrap",
+          }}>
           <Link className="btn btn-primary btn-lg" href="/get-involved#donate">
             Try again
           </Link>
