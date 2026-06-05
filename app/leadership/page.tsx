@@ -58,7 +58,8 @@ const DIRECTORATE: TeamMember[] = [
     photo: "/team/secretary-general.jpg",
     alt: "Babucarr Kassama, Secretary General & Partnership",
     dept: "Partnerships",
-    name: "Babucarr Kassama",
+    name: "Mustapha Bah",
+
     role: "Secretary General & Partnership",
   },
   {
@@ -72,7 +73,7 @@ const DIRECTORATE: TeamMember[] = [
     photo: "/team/finance-director.jpg",
     alt: "Mustapha Bah, Finance Director",
     dept: "Finance & Admin",
-    name: "Mustapha Bah",
+    name: "Babucarr Kassama",
     role: "Finance Director",
   },
   {
@@ -100,14 +101,15 @@ const DIRECTORATE: TeamMember[] = [
     photo: "/team/programs-director.jpg",
     alt: "Nfansu Jatta, Programs Director",
     dept: "Programs",
-    name: "Nfansu Jatta",
+    name: "Lamin Marena",
+
     role: "Programs Director",
   },
   {
     photo: "/team/deputy-programs.jpg",
     alt: "Lamin Marena, Deputy Programs Director",
     dept: "Programs",
-    name: "Lamin Marena",
+    name: "Nfansu Jatta",
     role: "Deputy Programs Director",
   },
 ];
