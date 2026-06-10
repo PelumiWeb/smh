@@ -34,7 +34,9 @@ export default function SiteHeader() {
           />
           <span className="nb-text">
             <span className="nb-name">Support &amp; Mentor Foundation</span>
-            <span className="nb-sub">Children &amp; Young People · The Gambia</span>
+            <span className="nb-sub">
+              Children &amp; Young People · The Gambia
+            </span>
           </span>
         </Link>
 
@@ -57,8 +59,7 @@ export default function SiteHeader() {
             className="nav-toggle"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-          >
+            onClick={() => setOpen((v) => !v)}>
             <svg
               width="24"
               height="24"
@@ -66,8 +67,7 @@ export default function SiteHeader() {
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
-              strokeLinecap="round"
-            >
+              strokeLinecap="round">
               {open ? (
                 <>
                   <line x1="18" y1="6" x2="6" y2="18" />
@@ -86,15 +86,16 @@ export default function SiteHeader() {
       </nav>
 
       {/* ── Mobile drawer — lives inside the sticky header, no fixed/transform issues ── */}
-      <div className={`mobile-drawer${open ? " mobile-drawer--open" : ""}`} aria-hidden={!open}>
-        <ul className="mobile-drawer-links container-wide">
+      <div
+        className={`mobile-drawer${open ? " mobile-drawer--open" : ""}`}
+        aria-hidden={!open}>
+        <ul className="mobile-drawer-links container-wide ">
           {NAV_LINKS.map(({ href, label }) => (
-            <li key={href}>
+            <li className="px-4" key={href}>
               <Link
                 href={href}
                 className={pathname === href ? "active" : ""}
-                onClick={close}
-              >
+                onClick={close}>
                 {label}
               </Link>
             </li>
@@ -104,8 +105,7 @@ export default function SiteHeader() {
               className="btn btn-primary"
               href="/get-involved#donate"
               onClick={close}
-              style={{ width: "100%", justifyContent: "center" }}
-            >
+              style={{ width: "100%", justifyContent: "center", paddingInline: "1rem" }}>
               Donate
             </Link>
           </li>
