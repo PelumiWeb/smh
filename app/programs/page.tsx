@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import ProgramGallery from "../components/ProgramGallery";
 import ScrollReveal from "../components/ScrollReveal";
 
 export const metadata: Metadata = {
@@ -186,6 +187,9 @@ export default function ProgramsPage() {
           </div>
         </div>
       </section>
+
+      {/* YOUTH CAPACITY BUILDING GALLERY + LIGHTBOX */}
+      <ProgramGallery />
 
       {/* CTA */}
       <section className="cta-band">
